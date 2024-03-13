@@ -9,7 +9,7 @@ const app=express();
 app.use(cors());
 app.use(express.json())
 
-mongoose.connect("mongodb://127.0.0.1:27017/yaswanth")
+mongoose.connect("mongodb+srv://yaswanthk183:sh34VfOVWHSpFSuJ@cluster0.mlzfysq.mongodb.net/")
 
 let globaldata = "";
 
@@ -70,15 +70,7 @@ app.get("/senddata",(req,res) => {
     res.send("adsfdg");
 })
 app.get("/getdata", async (req, res) => {
-    try {
-        const value =await Data.find({name:"kyle"});
-        console.log("hello")
-        console.log(value);
-        res.send(value);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('An error occurred while fetching data');
-    }
+    res.send(globaldata)
 });
 
 
